@@ -1,0 +1,4 @@
+project_id,project_name,budget,start_date,end_date
+101,ProjectA,100000,2023-01-01,2023-06-30
+102,ProjectB,80000,2023-02-15,2023-08-15
+103,ProjectC,120000,2023-03-20,2023-09-30

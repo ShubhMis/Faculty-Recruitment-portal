@@ -1,0 +1,41 @@
+
+### Assignment Questions on Procedures
+
+### Database Schema
+
+Tables:
+1. employees
+- emp_id (INT, Primary Key)
+- first_name (VARCHAR)
+- last_name (VARCHAR)
+- salary (DECIMAL)
+- department_id (INT, Foreign Key referencing departments)
+
+2. departments
+- department_id (INT, Primary Key)
+- department_name (VARCHAR)
+- location (VARCHAR)
+- manager_id (INT, Foreign Key referencing employees)
+
+3. projects
+- project_id (INT, Primary Key)
+- project_name (VARCHAR)
+- budget (DECIMAL)
+- start_date (DATE)
+- end_date (DATE)
+
+1. Create a procedure to calculate the average salary of employees in a given department.
+2. Write a procedure to update the salary of an employee by a specified percentage.
+3. Create a procedure to list all employees in a given department.
+4. Write a procedure to calculate the total budget allocated to a specific project.
+5. Create a procedure to find the employee with the highest salary in a given department.
+6. Write a procedure to list all projects that are due to end within a specified number of days.
+7. Create a procedure to calculate the total salary expenditure for a given department.
+8. Write a procedure to generate a report listing all employees along with their department and salary details.
+9. Create a procedure to find the project with the highest budget.
+10. Write a procedure to calculate the average salary of employees across all departments.
+11. Create a procedure to assign a new manager to a department and update the manager_id in the departments table.
+12. Write a procedure to calculate the remaining budget for a specific project.
+13. Create a procedure to generate a report of employees who joined the company in a specific year.
+14. Write a procedure to update the end date of a project based on its start date and duration.
+15. Create a procedure to calculate the total number of employees in each department.

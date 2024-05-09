@@ -1,0 +1,41 @@
+
+### Assignment Questions on Relational Algebra
+
+### Database Schema
+
+Tables:
+1. employees
+- emp_id (INT, Primary Key)
+- first_name (VARCHAR)
+- last_name (VARCHAR)
+- salary (DECIMAL)
+- department_id (INT, Foreign Key referencing departments)
+
+2. departments
+- department_id (INT, Primary Key)
+- department_name (VARCHAR)
+- location (VARCHAR)
+- manager_id (INT, Foreign Key referencing employees)
+
+3. projects
+- project_id (INT, Primary Key)
+- project_name (VARCHAR)
+- budget (DECIMAL)
+- start_date (DATE)
+- end_date (DATE)
+
+1. Write a relational algebra expression to select all employees from the 'Engineering' department.
+2. Perform a projection to display only the first names and salaries of all employees.
+3. Write a relational algebra expression to find employees who are managers.
+4. Perform a selection to retrieve employees earning a salary greater than ?60000.
+5. Write a relational algebra expression to join employees with their respective departments.
+6. Perform a Cartesian product between employees and projects.
+7. Write a relational algebra expression to find employees who are not managers.
+8. Perform a natural join between departments and projects.
+9. Write a relational algebra expression to project the department names and locations from departments table.
+10. Perform a selection to retrieve projects with budgets greater than ?100000.
+11. Write a relational algebra expression to find employees who are managers in the 'Sales' department.
+12. Perform a union operation between two sets of employees from the 'Engineering' and 'Finance' departments.
+13. Write a relational algebra expression to find employees who are not assigned to any projects.
+14. Perform a join operation to display employees along with their project assignments.
+15. Write a relational algebra expression to find employees whose salaries are not within the range ?50000 to ?70000.

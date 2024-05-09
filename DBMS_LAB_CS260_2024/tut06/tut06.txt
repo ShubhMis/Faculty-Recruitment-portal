@@ -1,0 +1,47 @@
+
+### Assignment Questions on Joins
+
+### Database Schema
+
+Import into MYSQL
+
+Tables:
+1. students
+- student_id (INT, Primary Key)
+- first_name (VARCHAR)
+- last_name (VARCHAR)
+- age (INT)
+- city (VARCHAR)
+
+2. courses
+- course_id (INT, Primary Key)
+- course_name (VARCHAR)
+- instructor_id (INT, Foreign Key referencing instructors)
+
+3. instructors
+- instructor_id (INT, Primary Key)
+- first_name (VARCHAR)
+- last_name (VARCHAR)
+
+4. enrollments
+- enrollment_id (INT, Primary Key)
+- student_id (INT, Foreign Key referencing students)
+- course_id (INT, Foreign Key referencing courses)
+- grade (VARCHAR)
+
+
+1. Write a query to display the first name and last name of all students along with their enrolled courses.
+2. List the course names along with the grades of students who have enrolled in them.
+3. Display the first name, last name, and course name of all students along with their instructors.
+4. Show the first name, last name, age, and city of all students who are enrolled in the 'Mathematics' course.
+5. List the course names along with the names of instructors teaching those courses.
+6. Display the first name, last name, and grade of all students along with their enrolled courses.
+7. Show the first name, last name, and age of all students who are enrolled in more than one course.
+8. Write a query to display the course names and the number of students enrolled in each course.
+9. Display the first name, last name, and age of students who have not enrolled in any courses.
+10. List the course names along with the average grades obtained by students in each course.
+11. Show the first name, last name, and course name of all students who have received grades above 'B'.
+12. Write a query to display the course names and the names of instructors with a last name starting with 'S'.
+13. Display the first name, last name, and age of students who are enrolled in courses taught by 'Dr. Akhil'.
+14. Show the course names and the maximum grade obtained in each course.
+15. Write a query to display the first name, last name, and age of students along with the course names they have enrolled in, sorted by course name in ascending order.

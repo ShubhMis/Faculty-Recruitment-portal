@@ -1,0 +1,39 @@
+### Assignment Questions SQL 2
+
+### Database Schema
+
+Tables:
+1. employees
+- emp_id (INT, Primary Key)
+- first_name (VARCHAR)
+- last_name (VARCHAR)
+- salary (DECIMAL)
+- department_id (INT, Foreign Key referencing departments)
+
+2. departments
+- department_id (INT, Primary Key)
+- department_name (VARCHAR)
+- location (VARCHAR)
+
+3. projects
+- project_id (INT, Primary Key)
+- project_name (VARCHAR)
+- budget (DECIMAL)
+- start_date (DATE)
+- end_date (DATE)
+
+1. Write a SQL query to display the first name and last name of all employees.
+2. List all departments along with their locations.
+3. Display the project names along with their budgets.
+4. Show the first name, last name, and salary of all employees in the 'Engineering' department.
+5. List the project names and their corresponding start dates.
+6. Display the first name, last name, and department name of all employees.
+7. Show the project names with budgets greater than ?90000.
+8. Write a SQL query to calculate the total budget allocated to projects.
+9. Display the first name, last name, and salary of employees earning more than ?60000.
+10. List the project names and their corresponding end dates.
+11. Show the department names with locations in 'North India' (Delhi or nearby regions).
+12. Write a SQL query to calculate the average salary of all employees.
+13. Display the first name, last name, and department name of employees in the 'Finance' department.
+14. List the project names with budgets between ?70000 and ?100000.
+15. Show the department names along with the count of employees in each department.

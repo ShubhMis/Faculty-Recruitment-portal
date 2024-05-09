@@ -1,0 +1,47 @@
+### Assignment Questions on Triggers
+
+### Database Schema
+
+Tables:
+1. employees
+- emp_id (INT, Primary Key)
+- first_name (VARCHAR)
+- last_name (VARCHAR)
+- salary (DECIMAL)
+- department_id (INT, Foreign Key referencing departments)
+
+2. departments
+- department_id (INT, Primary Key)
+- department_name (VARCHAR)
+- location (VARCHAR)
+- manager_id (INT, Foreign Key referencing employees)
+
+3. projects
+- project_id (INT, Primary Key)
+- project_name (VARCHAR)
+- budget (DECIMAL)
+- start_date (DATE)
+- end_date (DATE)
+
+4. works_on
+- emp_id (INT, Foreign Key referencing employees)
+- project_id (INT, Foreign Key referencing projects)
+- hours_worked (INT)
+
+
+
+1. Create a trigger that automatically increases the salary by 10% for employees whose salary is below ?60000 when a new record is inserted into the employees table.
+2. Create a trigger that prevents deleting records from the departments table if there are employees assigned to that department.
+3. Write a trigger that logs the details of any salary updates (old salary, new salary, employee name, and date) into a separate audit table.
+4. Create a trigger that automatically assigns a department to an employee based on their salary range (e.g., salary <= ?60000 -> department_id = 3).
+5. Write a trigger that updates the salary of the manager (highest-paid employee) in each department whenever a new employee is hired in that department.
+6. Create a trigger that prevents updating the department_id of an employee if they have worked on projects.
+7. Write a trigger that calculates and updates the average salary for each department whenever a salary change occurs.
+8. Create a trigger that automatically deletes all records from the works_on table for an employee when that employee is deleted from the employees table.
+9. Write a trigger that prevents inserting a new employee if their salary is less than the minimum salary set for their department.
+10. Create a trigger that automatically updates the total salary budget for a department whenever an employee's salary is updated.
+11. Write a trigger that sends an email notification to HR whenever a new employee is hired.
+12. Create a trigger that prevents inserting a new department if the location is not specified.
+13. Write a trigger that updates the department_name in the employees table when the corresponding department_name is updated in the departments table.
+14. Create a trigger that logs all insert, update, and delete operations on the employees table into a separate audit table.
+15. Write a trigger that automatically generates an employee ID using a sequence whenever a new employee

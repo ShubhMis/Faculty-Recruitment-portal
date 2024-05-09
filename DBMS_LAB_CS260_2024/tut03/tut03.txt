@@ -1,0 +1,47 @@
+### Assignment Questions SQL
+
+### Database Schema
+
+Tables:
+1. students
+- student_id (INT, Primary Key)
+- first_name (VARCHAR)
+- last_name (VARCHAR)
+- age (INT)
+- city (VARCHAR)
+- state (VARCHAR)
+
+2. courses
+- course_id (INT, Primary Key)
+- course_name (VARCHAR)
+- credit_hours (INT)
+- instructor_id (INT, Foreign Key referencing instructors)
+
+3. instructors
+- instructor_id (INT, Primary Key)
+- first_name (VARCHAR)
+- last_name (VARCHAR)
+- email (VARCHAR)
+
+4. enrollments
+- enrollment_id (INT, Primary Key)
+- student_id (INT, Foreign Key referencing students)
+- course_id (INT, Foreign Key referencing courses)
+- enrollment_date (DATE)
+- grade (VARCHAR)
+
+1. Write a query to display the first name and last name of all students.
+2. List all course names along with their credit hours.
+3. Display the first name, last name, and email of all instructors.
+4. Show the course names and grades of all students.
+5. List the first name, last name, and city of all students.
+6. Display the course names and instructor names for all courses.
+7. Show the first name, last name, and age of all students.
+8. List the course names and enrollment dates of all students.
+9. Display the instructor names and email addresses for all instructors.
+10. Show the course names and credit hours for all courses.
+11. List the first name, last name, and email of the instructor for 'Mathematics' course.
+12. Display the course names and grades for all students with a grade of 'A'.
+13. Show the first name, last name, and state of students enrolled in 'Computer Science' course.
+14. List the course names and enrollment dates for all students with a grade of 'B+'.
+15. Display the instructor names and email addresses for instructors teaching courses with more than 3 credit hours.
