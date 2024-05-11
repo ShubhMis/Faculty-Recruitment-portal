@@ -1,0 +1,273 @@
+<% layout("/layout/every.ejs") %>
+
+  <body>
+
+    <h3
+      style="color: #e10425; margin-bottom: 20px; font-weight: bold; text-align: center;font-family: 'Noto Serif', serif;"
+      class="blink_me">Application for Faculty Position</h3>
+
+    <style type="text/css">
+      body {
+        padding-top: 30px;
+      }
+
+      .form-control {
+        margin-bottom: 10px;
+      }
+
+      .floating-box {
+        display: inline-block;
+        width: 150px;
+        height: 75px;
+        margin: 10px;
+        border: 3px solid #73AD21;
+      }
+    </style>
+    <style type="text/css">
+      body {
+        padding-top: 30px;
+      }
+
+      .form-control {
+        margin-bottom: 10px;
+      }
+
+      label {
+        padding: 0 !important;
+      }
+
+      span {
+        font-size: 1.2em;
+        font-family: 'Oswald', sans-serif !important;
+        text-align: left !important;
+        padding: 0px 10px 0px 0px !important;
+        /*margin-bottom: 20px!important;*/
+
+      }
+
+      hr {
+        border-top: 1px solid #025198 !important;
+        border-style: dashed !important;
+        border-width: 1.2px;
+      }
+
+      .panel-heading {
+        font-size: 1.3em;
+        font-family: 'Oswald', sans-serif !important;
+        letter-spacing: .5px;
+      }
+
+      .btn-primary {
+        padding: 9px;
+      }
+    </style>
+
+    <a href='https://ofa.iiti.ac.in/facrec_che_2023_july_02/layout'></a>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-8 well">
+          <form class="form-horizontal" action="/formpages/6" method="POST">
+            <fieldset>
+              <input type="hidden" value="" />
+
+              <legend>
+                <div class="row">
+                  <div class="col-md-10">
+                    <h4>Welcome : <font color="#025198"><strong>
+                          <%= firstname %>&nbsp;<%= lastname %>
+                        </strong></font>
+                    </h4>
+                  </div>
+                  <div class="col-md-2">
+                    <a href="/logout" class="btn btn-sm btn-success  pull-right">Logout</a>
+                  </div>
+                </div>
+
+
+              </legend>
+
+
+              <!-- PHD Theses supervision -->
+
+
+              <h4 style="text-align:center; font-weight: bold; color: #6739bb;">13. Research Supervision:</h4>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">(A) PhD Thesis Supervision &nbsp;&nbsp;&nbsp;<button type="button"
+                        class="btn btn-sm btn-danger" id="add_phd_thesis">Add Details</button></div>
+                    <div class="panel-body">
+
+                      <table class="table table-bordered">
+                        <tbody id="phd_thesis_table">
+
+                          <tr height="30px">
+                            <th class="col-md-1"> S. No.</th>
+                            <th class="col-md-3"> Name of Student/Research Scholar </th>
+                            <th class="col-md-2"> Title of Thesis</th>
+                            <th class="col-md-2"> Role</th>
+                            <th class="col-md-2"> Ongoing/Completed</th>
+                            <th class="col-md-2"> Ongoing Since/ Year of Completion</th>
+                            <!-- <th class="col-md-2"> </th> -->
+
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- Master Theses supervision -->
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">(B). M.Tech/M.E./Master's Degree &nbsp;&nbsp;&nbsp;<button type="button"
+                        class="btn btn-sm btn-danger" id="add_pg_thesis">Add Details</button></div>
+                    <div class="panel-body">
+
+                      <table class="table table-bordered">
+                        <tbody id="pg_thesis_table">
+
+                          <tr height="30px">
+                            <th class="col-md-1"> S. No.</th>
+                            <th class="col-md-3"> Name of Student/Research Scholar </th>
+                            <th class="col-md-2"> Title of Thesis</th>
+                            <th class="col-md-2"> Role</th>
+                            <th class="col-md-2"> Ongoing/Completed</th>
+                            <th class="col-md-2"> Ongoing Since/ Year of Completion</th>
+
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <!-- Bachelor Theses supervision -->
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">(C) B.Tech/B.E./Bachelor's Degree &nbsp;&nbsp;&nbsp;<button type="button"
+                        class="btn btn-sm btn-danger" id="add_ug_thesis">Add Details</button></div>
+                    <div class="panel-body">
+
+                      <table class="table table-bordered">
+                        <tbody id="ug_thesis_table">
+
+                          <tr height="30px">
+                            <th class="col-md-1"> S. No.</th>
+                            <th class="col-md-3"> Name of Student </th>
+                            <th class="col-md-2"> Title of Project</th>
+                            <th class="col-md-2"> Role</th>
+                            <th class="col-md-2"> Ongoing/Completed</th>
+                            <th class="col-md-2"> Ongoing Since/ Year of Completion</th>
+
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Courses Taken -->
+
+              <!-- Button -->
+
+              <div class="form-group">
+
+                <div class="col-md-1">
+                  <a href="/formpages/5" class="btn btn-primary pull-left"><i
+                      class="glyphicon glyphicon-fast-backward"></i></a>
+                </div>
+
+                <div class="col-md-11">
+                  <button id="submit" type="submit" value="Submit" class="btn btn-success pull-right">SAVE &
+                    NEXT</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+    <script type="text/javascript">
+
+      $(function () {
+        $('.datepicker').datepicker({
+          format: 'dd/mm/yyyy',
+          autoclose: true
+        });
+      });
+    </script>
+
+<script>
+  // Function to add details for Membership of Professional Societies
+$('#add_phd_thesis').click(function() {
+var rowCount = $('#phd_thesis_table tr').length;
+var newRow = '<tr>' +
+             '<td>' + rowCount + '</td>' +
+             '<td><input type="text" class="form-control" placeholder="Name of Student" name="phd_name[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Title Of Thesis" name="phd_title[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Role" name="phd_role[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Ongoing/Completed" name="phd_status[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Ongoing Since/ Year of Completion" name="phd_year[]" required></td>' +
+             '<td><button type="button" class="btn btn-danger btn-sm remove-row">Remove</button></td>' +
+             '</tr>';
+$('#phd_thesis_table').append(newRow);
+});
+
+// Function to add details for Professional Training
+$('#add_pg_thesis').click(function() {
+var rowCount = $('#pg_thesis_table tr').length;
+var newRow = '<tr>' +
+             '<td>' + rowCount + '</td>' +
+             '<td><input type="text" class="form-control" placeholder="Name of Student" name="pg_name[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Title Of Thesis" name="pg_title[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Role" name="pg_role[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Ongoing/Completed" name="pg_status[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Ongoing Since/ Year of Completion" name="pg_year[]" required></td>' +
+             '<td><button type="button" class="btn btn-danger btn-sm remove-row">Remove</button></td>' +
+             '</tr>';
+$('#pg_thesis_table').append(newRow);
+});
+
+$('#add_ug_thesis').click(function() {
+var rowCount = $('#ug_thesis_table tr').length;
+var newRow = '<tr>' +
+             '<td>' + rowCount + '</td>' +
+             '<td><input type="text" class="form-control" placeholder="Name of Student" name="ug_name[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Title Of Project" name="ug_title[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Role" name="ug_role[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Ongoing/Completed" name="ug_status[]" required></td>' +
+             '<td><input type="text" class="form-control" placeholder="Ongoing Since/ Year of Completion" name="ug_year[]" required></td>' +
+             '<td><button type="button" class="btn btn-danger btn-sm remove-row">Remove</button required></td>' +
+             '</tr>';
+$('#ug_thesis_table').append(newRow);
+});
+
+// Function to remove row
+$(document).on('click', '.remove-row', function() {
+$(this).closest('tr').remove();
+});
+
+</script>
+    </script>
+  </body>

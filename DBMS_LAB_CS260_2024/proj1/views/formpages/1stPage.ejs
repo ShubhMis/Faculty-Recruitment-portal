@@ -1,0 +1,502 @@
+<% layout("/layout/every.ejs") %>
+
+  <body>
+    <!-- <body onload="updateAb()">  -->
+
+    <style type="text/css">
+      body {
+        padding-top: 30px;
+      }
+
+      .floating-box {
+        display: inline-block;
+        width: 150px;
+        height: 75px;
+        margin: 10px;
+        border: 3px solid #73AD21;
+      }
+    </style>
+    <style type="text/css">
+      body {
+        padding-top: 30px;
+      }
+
+      .form-control {
+        margin-bottom: 20px;
+      }
+
+      label {
+        padding: 0 !important;
+        text-align: left !important;
+        font-family: 'Noto Serif', serif;
+      }
+
+      span {
+        font-size: 1.2em;
+        font-family: 'Oswald', sans-serif !important;
+        text-align: left !important;
+        padding: 0px 10px 0px 0px !important;
+        /*font-family: 'Noto Serif', serif;*/
+        font-weight: bold;
+        color: #414002;
+        /*margin-bottom: 20px!important;*/
+
+      }
+
+      hr {
+        border-top: 1px solid #025198 !important;
+        border-style: dashed !important;
+        border-width: 1.2px;
+      }
+
+      .panel-heading {
+        font-size: 1.3em;
+        font-family: 'Oswald', sans-serif !important;
+        letter-spacing: .5px;
+      }
+
+      .btn-primary {
+        padding: 9px;
+      }
+    </style>
+
+
+    <body>
+
+      <script type="text/javascript">
+        function ageCalculator() {
+
+          debugger;
+          var birthdate = document.getElementById('dob').value;
+          var senddate = document.getElementById('Date').value;
+          var x = birthdate.split("/");
+          var y = senddate.split("/");
+          var bdays = x[0];
+          var bmonths = x[1];
+          var byear = x[2];
+          //alert(bdays);  
+          var sdays = y[0];
+          var smonths = y[1];
+          var syear = y[2];
+          // alert(sdays);  
+          if (sdays < bdays) {
+            sdays = parseInt(sdays) + 30;
+            smonths = parseInt(smonths) - 1;
+            //alert(sdays);  
+            var fdays = sdays - bdays;
+            //alert(fdays);  
+          }
+          else {
+            var fdays = sdays - bdays;
+          }
+          if (smonths < bmonths) {
+            smonths = parseInt(smonths) + 12;
+            syear = syear - 1;
+            var fmonths = smonths - bmonths;
+          }
+          else {
+            var fmonths = smonths - bmonths;
+          }
+          var fyear = syear - byear;
+          var year_to_days = fyear * 365;
+          var month_to_days = fmonths * 30;
+          var newage = (fyear + ' years ' + fmonths + ' months ' + fdays + ' days');
+
+
+          var newage_year = (year_to_days + month_to_days + fdays);
+
+          document.getElementById("age").value = newage;
+          document.getElementById("age_days").value = newage_year;
+        }
+
+
+      </script>
+
+      <script type="text/javascript">
+        function updateAb() {
+
+          alert('hi');
+        }
+      </script>
+      <a href='https://ofa.iiti.ac.in/facrec_che_2023_july_02/layout'></a>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 well">
+            <form class="form-horizontal" action="/formpages/1" method="post" enctype="multipart/form-data">
+
+              <input type="hidden" name="ci_csrf_token" value="" />
+              <fieldset>
+
+                <legend>
+
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h4>Welcome : <font color="#025198"><strong>
+                            <%= firstname %>&nbsp;<%= lastname %>
+                          </strong></font>
+                      </h4>
+                    </div>
+
+                    <div class="col-md-3">
+
+                      <a href='#' class='btn btn-sm btn-info pull-right' onclick="get_username('Ma&nbsp;Agarwal', 711)"
+                        data-target='#passModal' data-toggle='modal'>Change Password</a>
+
+
+                    </div>
+                    <div class="col-md-1">
+                      <a href="/logout" class="btn btn-sm btn-success  pull-right">Logout</a>
+                    </div>
+                  </div>
+
+
+                </legend>
+
+
+
+
+
+                <div id="project_show">
+
+                  <div class="row">
+                    <div class="col-md-12">
+
+                      <label class="col-md-2 control-label" for="adv_num">Advertisement Number *</label>
+                      <div class="col-md-4">
+
+                        <select id="adv_num" name="applicationdetails[adv_num]" class="form-control input-md"
+                          required="">
+
+                          <option value="">Select</option>
+                          <option value="IITI/FACREC-CHE/2023/JULY/02" <% if (applicationdetails.adv_num === 'IITI/FACREC-CHE/2023/JULY/02') { %> selected <% } %>>IITI/FACREC-CHE/2023/JULY/02
+                          </option>
+                        </select>
+
+                      </div>
+  
+                      <label class="col-md-2 control-label" for="doa">Date of Application </label>
+                      <div class="col-md-4">
+                        <input id="doa" name="applicationdetails[doa]" type="text" readonly="readonly"
+                          value="<%= applicationdetails.doa %>" placeholder="" class="form-control input-md" required="">
+                      </div>
+
+                      <label class="col-md-2 control-label" for="ref_num">Application Number</label>
+                      <div class="col-md-4">
+
+                        <input id="ref_num" name="applicationdetails[app_num]" type="text" readonly="readonly"
+                          value="<%= applicationdetails.app_num %>" placeholder="" class="form-control input-md"
+                          required="">
+                      </div>
+
+                      <label class="col-md-2 control-label" for="post">Post Applied for *</label>
+                      <div class="col-md-4">
+                        <select id="post" name="applicationdetails[post]" class="form-control input-md" required="">
+                          <option value="">Select</option>
+                          <option value="Professor" <% if (applicationdetails.post === 'Professor') { %> selected <% } %>>Professor</option>
+                          <option value="Associate Professor" <% if (applicationdetails.post === 'Associate Professor') { %> selected <% } %>>Associate Professor</option>
+                          <option value="Assistant Professor Grade I" <% if (applicationdetails.post === 'Assistant Professor Grade I') { %> selected <% } %>>Assistant Professor Grade I</option>
+                          <option value="Assistant Professor Grade II" <% if (applicationdetails.post === 'Assistant Professor Grade II') { %> selected <% } %>>Assistant Professor Grade II
+                          </option>
+                        </select>
+                      </div>
+
+                      <label class="col-md-2 control-label" for="dept">Department/School *</label>
+                      <div class="col-md-4">
+                        <select id="dept" name="applicationdetails[dept]" class="form-control input-md" required="">
+                          <option value="">Select</option>
+                          <option selected='selected' value="Chemical Engineering">Chemical Engineering</option>
+                        </select>
+
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="panel panel-success">
+                        <div class="panel-heading">1. Personal Details <small class="pull-right">Upload/Update Photo
+                            *</small></div>
+                        <div class="panel-body" style="height: 390px">
+                          <div class="col-md-10">
+                            <div class="row">
+
+                              <span class="col-md-2 control-label" for="fname">First Name *</span>
+                              <div class="col-md-4">
+                                <input id="fname" value="<%= personaldetails.first_name %>" name="personaldetails[first_name]" type="text"
+                                  placeholder="First name" class="form-control input-md" maxlength="15" required="">
+                              </div>
+
+
+                              <span class="col-md-2 control-label" for="mname">Middle Name</span>
+                              <div class="col-md-4">
+                                <input id="mname" value="<%= personaldetails.middle_name %>" name="personaldetails[middle_name]" type="text"
+                                  placeholder="Middle name" class="form-control input-md" maxlength="12">
+                              </div>
+
+                              <span class="col-md-2 control-label" for="lname">Last Name *</span>
+                              <div class="col-md-4">
+                                <input id="lname" value="<%= personaldetails.last_name %>" name="personaldetails[last_name]" type="text"
+                                  placeholder="Last name" class="form-control input-md" maxlength="15" required="">
+                              </div>
+
+
+                              <span class="col-md-2 control-label" for="nationality">Nationality *</span>
+                              <div class="col-md-4">
+                                <select id="nationality" name="personaldetails[nationality]"
+                                  class="form-control input-md" required="">
+                                  <option value="">Select</option>
+                                  <option value="Indian" <% if (personaldetails.nationality === 'Indian') { %> selected <% } %>> Indian</option>
+                                  <option value="OCI" <% if (personaldetails.nationality === 'OCI') { %> selected <% } %>>OCI</option>
+                                </select>
+                              </div>
+                              <span class="col-md-2 control-label" for="dob">Date of Birth DD/MM/YYYY *</span>
+                              <div class="col-md-4">
+                                <!--  <p id="dobdiv"> -->
+                                <input id="dob" name="personaldetails[dob]" value="<%= personaldetails.dob %>" type="text"
+                                  placeholder="DD/MM/YYYY" class="form-control input-md" required=""
+                                  onfocusout="ageCalculator()">
+                                <!-- </p> -->
+
+                                <input type="hidden" name="Date" id="Date" value="31/08/2023" />
+
+                              </div>
+                              <span class="col-md-2 control-label" for="gender">Gender *</span>
+                              <div class="col-md-4">
+                                <select id="gender" name="personaldetails[gender]" class="form-control input-md"
+                                  required="">
+                                  <option value="">Select</option>
+                                  <option value="Male" <% if (personaldetails.gender === 'Male') { %> selected <% } %>>Male</option>
+                                  <option value="Female" <% if (personaldetails.gender === 'Female') { %> selected <% } %>>Female</option>
+                                  <option value="Other" <% if (personaldetails.gender === 'Other') { %> selected <% } %>>Other</option>
+                                </select>
+                              </div>
+
+
+                              <span class="col-md-2 control-label" for="mstatus">Marital Status *</span>
+                              <div class="col-md-4">
+                                <select id="mstatus" name="personaldetails[maritalstatus]" class="form-control input-md"
+                                  required="">
+                                  <option value="">Select</option>
+                                  <option value="Married" <% if (personaldetails.maritalstatus === 'Married') { %> selected <% } %>>Married</option>
+                                  <option value="Unmarried" <% if (personaldetails.maritalstatus === 'Unmarried') { %> selected <% } %>>Unmarried</option>
+                                  <option value="Other" <% if (personaldetails.maritalstatus === 'Other') { %> selected <% } %>>Other</option>
+                                </select>
+                              </div>
+
+                              <span class="col-md-2 control-label" for="cast">Category</span>
+                              <div class="col-md-4">
+                                <input id="cast" type="text" placeholder="cast" name="personaldetails[category]"
+                                  readonly='readonly' value="<%= category %>" class="form-control input-md" required="">
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <span class="col-md-2 control-label" for="mstatus">ID Proof *</span>
+                              <div class="col-md-4">
+
+                                <select id="id_proof" name="personaldetails[idproof]" class="form-control input-md"
+                                  required="">
+                                  <option value="">Select</option>
+                                  <option value="AADHAR" <% if (personaldetails.idproof === 'AADHAR') { %> selected <% } %>>AADHAR</option>
+                                  <option value="PAN-CARD" <% if (personaldetails.idproof === 'PAN-CARD') { %> selected <% } %>>PAN-CARD</option>
+                                  <option value="DRIVING-LICENSE" <% if (personaldetails.idproof === 'DRIVING-LICENSE') { %> selected <% } %>>DRIVING-LICENSE</option>
+                                  <option value="VOTER ID" <% if (personaldetails.idproof === 'VOTER ID') { %> selected <% } %>>VOTER ID</option>
+                                  <option value="PASSPORT" <% if (personaldetails.idproof === 'PASSPORT') { %> selected <% } %>>PASSPORT</option>
+                                  <option value="RATION CARD" <% if (personaldetails.idproof === 'RATION CARD') { %> selected <% } %>>RATION CARD</option>
+                                  <option value="OTHERS" <% if (personaldetails.idproof === 'OTHERS') { %> selected <% } %>>OTHERS</option>
+                                </select>
+                              </div>
+
+
+
+                              <span class="col-md-2 control-label" for="cast">Update ID Proof</span>
+                              <div class="col-md-2">
+                                <a href="../<%= idpath %>"
+                                  class="btn btn-sm btn-success" target="_blank">View Uploaded File </a>
+                              </div>
+                              <!-- <div class="col-md-2">
+                                <input id="id_card_file" name="personaldetails[uploadid]" type="file"
+                                  class="form-control input-md">
+                              </div> -->
+                              <div class="col-md-2">
+                                <input id="id_card_file" name="uploadid" type="file" class="form-control input-md">
+                              </div>
+
+
+                              <span class="col-md-2 control-label" for="father_name">Father's Name *</span>
+                              <div class="col-md-4">
+                                <input id="father_name" value="<%= personaldetails.father_name %>" name="personaldetails[father_name]" type="text"
+                                  placeholder="Father's Name" class="form-control input-md" maxlength="30" required="">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-2 pull-right">
+                           
+                            <% if (imagePath) { %>
+                              <div style="background-image: url('../<%= imagePath %>'); height: 150px; width: 130px; margin-bottom: 10px; background-size: cover;"></div>
+                          <% } else { %>
+                              <span>No image available</span>
+                              <div><input id="photo" name="userfile" type="file" class="form-control"></div>
+                          <% } %>
+                      
+                           
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="panel panel-success">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <span class="control-label" for="cadd">Correspondence Address </span>
+                              <br />
+                              <br />
+                              <textarea style="font-size: 1.3rem;" placeholder="Correspondence Address" class="form-control input-md"
+                                name="personaldetails[correspondenceaddress]" rows="13"
+                                required=""><%= personaldetails.correspondenceaddress %></textarea>
+
+
+                            </div>
+
+
+                            <div class="col-md-6">
+                              <span class="control-label" for="padd">Permanent Address </span>
+                              <br />
+                              <br />
+                              <textarea style="font-size: 1.3rem;" placeholder="Permanent Address" class="form-control input-md"
+                                name="personaldetails[permanentaddress]" rows="13"
+                                required=""><%= personaldetails.permanentaddress %></textarea>
+
+
+                            </div>
+
+                          </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="panel panel-success">
+                        <div class="panel-body">
+                          <span class="col-md-2 control-label" for="mobile">Mobile *</span>
+                          <div class="col-md-4">
+                            <input id="mobile" value="<%= personaldetails.mobile %>" name="personaldetails[mobile]" type="text"
+                              placeholder="Mobile" class="form-control input-md" required="" maxlength="20">
+                          </div>
+
+
+
+                          <span class="col-md-2 control-label" for="email">Email</span>
+                          <div class="col-md-4">
+                            <input id="email" type="text" name="personaldetails[email]" placeholder="email"
+                              readonly='readonly' value="<%= email %>" class="form-control input-md" required="">
+                          </div>
+
+                          <span class="col-md-2 control-label" for="mobile_2">Alternate Mobile</span>
+                          <div class="col-md-4">
+                            <input id="mobile_2" value="<%= personaldetails.altmobile %>" name="personaldetails[altmobile]" type="text"
+                              placeholder="Alternate Mobile" class="form-control input-md" maxlength="20">
+                          </div>
+
+                          <span class="col-md-2 control-label" for="email_2">Alternate Email </span>
+                          <div class="col-md-4">
+                            <input id="email_2" value="<%= personaldetails.altemail %>"
+                              name="personaldetails[altemail]" type="email" placeholder="Alternate Email"
+                              class="form-control input-md">
+                          </div>
+
+
+                          <span class="col-md-2 control-label" for="landline">Landline Number</span>
+                          <div class="col-md-4">
+                            <input id="landline" value="<%= personaldetails.landlinenumber %>" name="personaldetails[landlinenumber]" type="text"
+                              placeholder="Landline Number" class="form-control input-md" maxlength="20">
+                          </div>
+
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+
+                    <div class="col-md-12">
+
+                      <button id="submit" type="submit" name="submit" value="Submit"
+                        class="btn btn-success pull-right">SAVE & NEXT</button>
+                    </div>
+
+                  </div>
+                </div>
+          </div>
+
+          </fieldset>
+          </form>
+
+
+        </div>
+      </div>
+
+
+      <div id="passModal" class="modal fade" role="dialog">
+        <form action="https://ofa.iiti.ac.in/facrec_che_2023_july_02/facultypanel/change_pass" method="post">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2>Change Password</h2>
+
+              </div>
+              <div class="modal-body">
+                <h3>Change Password For : <font color="#3377a0"><strong id="username_mod"></strong></font>
+                </h3>
+                <input type="hidden" name="fid" id="fid" value="" />
+                <div class="form-group">
+                  <label>Current Password</label>
+                  <input type="password" name="cr_password" placeholder="Current Password" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label>New Password</label>
+                  <input type="password" name="n_password" placeholder="New Password" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label>Confirm New Password</label>
+                  <input type="password" name="cn_password" placeholder="New Confirm Password" class="form-control" />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" name="submit" value="Submit" class="btn btn-info">Submit</button>
+                <button class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <script type="text/javascript">
+        function get_username(uname, uid) {
+          document.getElementById('username_mod').innerHTML = uname;
+          document.getElementById('fid').value = uid;
+        }
+      </script>
+
+
+    </div>
+    </div>
+
+  </body>
+
+  </html>

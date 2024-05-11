@@ -1,0 +1,522 @@
+<% layout("/layout/every.ejs") %>
+<body>
+
+                <h3 style="color: #e10425; margin-bottom: 20px; font-weight: bold; text-align: center;font-family: 'Noto Serif', serif;" class="blink_me">Application for Faculty Position</h3>
+    
+    
+    <style type="text/css">
+    body { padding-top:30px; }
+    .form-control { margin-bottom: 10px; }
+    .floating-box {
+        display: inline-block;
+        width: 150px;
+        height: 75px;
+        margin: 10px;
+        border: 3px solid #73AD21;  
+    }
+    </style>
+    <style type="text/css">
+    body { padding-top:30px; }
+    .form-control { margin-bottom: 10px; }
+    label{
+      padding: 0 !important;
+    }
+    hr{
+      border-top: 1px solid #025198 !important;
+    }
+    span{
+      font-size: 1.2em;
+      font-family: 'Oswald', sans-serif!important;
+      text-align: left!important;
+      padding: 0px 10px 0px 0px!important;
+      /*margin-bottom: 20px!important;*/
+    
+    }
+    hr{
+      border-top: 1px solid #025198 !important;
+      border-style: dashed!important;
+      border-width: 1.2px;
+    }
+    
+    .panel-heading{
+      font-size: 1.3em;
+      font-family: 'Oswald', sans-serif!important;
+      letter-spacing: .5px;
+    }
+    .btn-primary {
+      padding: 9px;
+    }
+    </style>
+    
+    <!-- <script type="text/javascript">
+      $(function() {
+          $('.datepicker').datepicker({
+              format: 'dd/mm/yyyy',
+              autoclose: true
+          });
+      });
+  
+      function addRow(tableId, counter) {
+          var tbody = $('#' + tableId);
+          var newRow = $("<tr>");
+  
+          newRow.append('<td>' + counter + '</td>'); // Serial number column
+  
+          // Add other columns as needed
+          newRow.append('<td><input type="text" name="' + tableId + '_position[]" placeholder="Position" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="' + tableId + '_employer[]" placeholder="Organization/Institution" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="' + tableId + '_doj[]" placeholder="DD/MM/YYYY" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="' + tableId + '_dol[]" placeholder="DD/MM/YYYY" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="' + tableId + '_duration[]" placeholder="Duration" class="form-control input-md" required></td>');
+  
+          // Append the new row to the table body
+          tbody.append(newRow);
+  
+          // Initialize datepicker for new rows
+          $('.datepicker').datepicker({
+              format: 'dd/mm/yyyy',
+              autoclose: true
+          });
+      }
+  
+      $(document).ready(function() {
+          var counter_exp = 1;
+          var counter_t_exp = 1;
+          var counter_r_exp = 1;
+          var counter_ind_exp = 1;
+  
+          $("#add_more_exp").click(function() {
+              addRow('exp', counter_exp);
+              counter_exp++;
+              return false;
+          });
+  
+          $("#add_more_t_exp").click(function() {
+              addRow('t_exp', counter_t_exp);
+              counter_t_exp++;
+              return false;
+          });
+  
+          $("#add_more_r_exp").click(function() {
+              addRow('r_exp', counter_r_exp);
+              counter_r_exp++;
+              return false;
+          });
+  
+          $("#add_more_ind_exp").click(function() {
+              addRow('ind_exp', counter_ind_exp);
+              counter_ind_exp++;
+              return false;
+          });
+      });
+  </script> -->
+  
+    <!-- all bootstrap buttons classes -->
+    <!-- 
+      class="btn btn-sm, btn-lg, "
+      color - btn-success, btn-primary, btn-default, btn-danger, btn-info, btn-warning
+    -->
+    
+    
+    
+    <a href='https://ofa.iiti.ac.in/facrec_che_2023_july_02/layout'></a>
+    
+    <div class="container">
+    
+    
+    
+    
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 well">
+                <form class="form-horizontal" action="/formpages/3" method="POST">
+                  <input type="hidden" value="" />
+                <fieldset>
+                 
+                     <legend>
+                      <div class="row">
+                        <div class="col-md-10">
+                            <h4>Welcome : <font color="#025198"><strong><%= firstname %>&nbsp;<%= lastname %></strong></font></h4>
+                        </div>
+                        <div class="col-md-2">
+                          <a href="/logout" class="btn btn-sm btn-success  pull-right">Logout</a>
+                        </div>
+                      </div>
+                    
+                    
+            </legend>
+    
+    <h4 style="text-align:center; font-weight: bold; color: #6739bb;">3. Employment Details</h4>
+    
+    
+                <!-- Form Name -->
+    
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-success">
+          <div class="panel-heading">(A) Present Employment</div>
+            <div class="panel-body">
+              
+              <span class="col-md-2 control-label" for="pres_emp_position">Position</span>  
+              <div class="col-md-4">
+              <input id="pres_emp_position" value="" name="present[pres_emp_position]" type="text" placeholder="Position" class="form-control input-md" autofocus="" required="">
+              </div>
+    
+              <span class="col-md-2 control-label" for="pres_emp_employer">Organization/Institution</span>  
+              <div class="col-md-4">
+              <input id="pres_emp_employer" value="" name="present[pres_emp_employer]" type="text" placeholder="Organization/Institution" class="form-control input-md" autofocus="">
+              </div> 
+              
+              <span class="col-md-2 control-label" for="pres_status">Status</span>  
+              <div class="col-md-4">
+              <select id="pres_status" name="present[pres_status]" class="form-control input-md" required="">
+                  <option value="">Select</option>
+                  <option   value="Central Govt.">Central Govt.</option>
+                  <option   value="State Government">State Government</option>
+                  <option   value="Private">Private</option>
+                  <option   value="Quasi Govt.">Quasi Govt.</option>
+                  <option   value="Other">Other</option>
+              </select>
+              </div>
+    
+              <span class="col-md-2 control-label" for="pres_emp_doj">Date of Joining</span>  
+              <div class="col-md-4">
+              <input id="pres_emp_doj" name="present[pres_emp_doj]" type="text" placeholder="Date of Joining" value="" class="form-control input-md" required="">
+              </div>
+    
+              <span class="col-md-2 control-label" for="pres_emp_dol">Date of Leaving <br />(Mention Continue if working)</span>  
+              <div class="col-md-4">
+              <input id="pres_emp_dol" value="" name="present[pres_emp_dol]" type="text" placeholder="Date of Leaving" class="form-control input-md" required="">
+              </div>
+              
+              <span class="col-md-2 control-label" for="pres_emp_duration">Duration (in years & months)</span>  
+              <div class="col-md-4">
+              <input id="pres_emp_duration" name="present[pres_emp_duration]" type="text" placeholder="Duration" value="" class="form-control input-md" required="">
+              </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-success">
+          <div class="panel-heading">(B) Employment History (After PhD, Starting with Latest)  </strong></font>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-sm btn-danger" id="add_more_exp">Add Details</button></div>
+          <div class="panel-body">
+            
+               <table class="table table-bordered">
+                  <tbody id="exp">
+                  
+                    <tr height="30px">
+                    <th class="col-md-1"> S. No.</th>
+                    <th class="col-md-3"> Position </th>
+                    <th class="col-md-4"> Organization/Institution </th>
+                    <th class="col-md-1"> Date of Joining</th>
+                    <th class="col-md-1"> Date of Leaving </th>
+                    <th class="col-md-2"> Duration (in years & months)</th>
+                  </tr>
+                
+                                 </tbody>
+                  </table>
+    
+                  
+                  
+                            </div>
+            </div>
+          </div>
+        </div>
+    
+    <!-- Teaching Experience  -->
+              
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-success">
+        <div class="panel-heading">(C) Teaching Experience (After PhD)&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-sm btn-danger" id="add_more_t_exp">Add Details</button></div>
+          <div class="panel-body">
+            <table class="table table-bordered">
+                <tbody id="t_exp">
+                
+                <tr height="30px">
+                  <th class="col-md-1"> S. No.</th>
+                  <th class="col-md-2"> Position</th>
+                  <th class="col-md-1"> Employer </th>
+                  <th class="col-md-1"> Course Taught </th>
+                  <th class="col-md-1"> UG/PG </th>
+                  <th class="col-md-1"> No. of Students </th>
+                  <th class="col-md-1"> Date of Joining the Institute</th>
+                  <th class="col-md-1"> Date of Leaving the Institute</th>
+                  <th class="col-md-1"> Duration (in years & months) </th>
+                  
+                </tr>
+    
+    
+                
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- c) Research Experience: (including Postdoctoral) input-->
+                     
+    <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-success">
+      <div class="panel-heading">(D) Research Experience (Post PhD, including Post Doctoral)&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-sm btn-danger" id="add_more_r_exp">Add Details</button></div>
+        <div class="panel-body">
+          <table class="table table-bordered">
+              <tbody id="r_exp">
+              
+              <tr height="30px">
+                <th class="col-md-1"> S. No.</th>
+                <th class="col-md-1"> Position </th>
+                <th class="col-md-2"> Institute</th>
+                <th class="col-md-2"> Supervisor</th>
+                <!-- <th class="col-md-2"> Topic </th> -->
+                <th class="col-md-1"> Date of Joining</th>
+                <th class="col-md-1"> Date of Leaving</th>
+                <th class="col-md-1"> Duration (in years & months) </th>
+                
+              </tr>
+    
+    
+              
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- g)  Industrial Experience Interaction -->
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-success">
+          <div class="panel-heading">(E) Industrial Experience &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-sm btn-danger" id="add_more_ind_exp">Add Details</button></div>
+            <div class="panel-body">
+    
+                <table class="table table-bordered">
+                    <tbody id="ind_exp">
+                    
+                    <tr height="30px">
+                      <th class="col-md-1"> S. No.</th>
+                      <th class="col-md-2"> Organization </th>
+                      <th class="col-md-3"> Work Profile</th>
+                      <th class="col-md-2"> Date of Joining</th>
+                      <th class="col-md-2"> Date of Leaving</th>
+                      <th class="col-md-2"> Duration (in years & months)</th>
+                    </tr>
+    
+    
+                                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+    </div>
+    
+    
+    <h4 style="text-align:center; font-weight: bold; color: #6739bb;">4. Area(s) of Specialization and Current Area(s) of Research</h4>
+     <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-success">
+          <!-- <div class="panel-heading">9. Area(s) of Specialization *</div> -->
+          <div class="panel-body">
+            <strong>Areas of specialization</strong>
+            <textarea style="height:150px" placeholder="Areas of specialization" class="form-control input-md" name="aos_aor[area_spl]" maxlength="500" required=""></textarea>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-md-6">
+        <div class="panel panel-success">
+          <!-- <div class="panel-heading">10. Current Area(s) of Research *</div> -->
+          <div class="panel-body">
+            <strong>Current Area of research</strong>
+            <textarea style="height:150px" placeholder="Current Area of research" class="form-control input-md" name="aos_aor[area_rese]" maxlength="500" required=""></textarea>
+          </div>
+        </div>
+      </div>
+     </div>
+    
+    <div class="form-group">
+      
+      <div class="col-md-1">
+        <a href="/formpages/2" class="btn btn-primary pull-left"><i class="glyphicon glyphicon-fast-backward"></i></a>
+      </div>
+    
+      <div class="col-md-11">
+        <button id="submit" type="submit" value="Submit" class="btn btn-success pull-right" style="margin-left: 75%;">SAVE & NEXT</button>
+        
+      </div>
+      
+    </div>
+              
+    </fieldset>
+    </form>
+    
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+      function yearcalc()
+      { 
+        // alert('hi');
+        var num1=document.getElementById("yoj").value;
+        var num2=document.getElementById("yog").value;
+    
+        var duration_year=parseFloat(num2)-parseFloat(num1);
+        // alert(duration_year);
+        document.getElementById("result_test").value = duration_year ;
+       
+      }
+    </script>
+    <script type="text/javascript">
+      // Function to add a new row for employment history
+      function addEmploymentRow(counter) {
+          let tbody = $('#exp');
+          let newRow = $("<tr>");
+  
+          newRow.append('<td>' + counter1 + '</td>'); // Serial number column
+  
+          // Add other columns specific to employment history
+          newRow.append('<td><input type="text" name="exp_position[]" placeholder="Position" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="exp_employer[]" placeholder="Organization/Institution" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="exp_doj[]" placeholder="DD/MM/YYYY" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="exp_dol[]" placeholder="DD/MM/YYYY" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="exp_duration[]" placeholder="Duration" class="form-control input-md" required></td>');
+  
+          // Add remove button column
+          newRow.append('<td><button type="button" class="btn btn-danger btn-sm remove-row">Remove</button></td>');
+  
+          // Append the new row to the table body
+          tbody.append(newRow);
+          counter1++;
+          // Initialize datepicker for new rows
+          $('.datepicker').datepicker({
+              format: 'dd/mm/yyyy',
+              autoclose: true
+          });
+      }
+  
+      // Function to add a new row for teaching experience
+      function addTeachingRow(counter) {
+        let tbody = $('#t_exp');
+          let newRow = $("<tr>");
+  
+          newRow.append('<td>' + counter2 + '</td>'); // Serial number column
+  
+          // Add other columns specific to employment history
+          newRow.append('<td><input type="text" name="t_exp_position[]" placeholder="Position" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="t_exp_employer[]" placeholder="Employer" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="t_exp_course[]" placeholder="course" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="t_ugpg[]" placeholder="UG/PG" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="t_noofstudents[]" placeholder="No. Of Students" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="t_doj[]" placeholder="DD/MM/YYYY" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="t_dol[]" placeholder="DD/MM/YYYY" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="t_duration[]" placeholder="Duration" class="form-control input-md datepicker" required></td>');
+          // Add remove button column
+          newRow.append('<td><button type="button" class="btn btn-danger btn-sm remove-row">Remove</button></td>');
+  
+          // Append the new row to the table body
+          tbody.append(newRow);
+          counter2++;
+  
+          // Initialize datepicker for new rows
+          $('.datepicker').datepicker({
+              format: 'dd/mm/yyyy',
+              autoclose: true
+          });
+      }
+  
+      // Function to add a new row for research experience
+      function addResearchRow(counter) {
+        let tbody = $('#r_exp');
+          let newRow = $("<tr>");
+  
+          newRow.append('<td>' + counter3 + '</td>'); // Serial number column
+  
+          // Add other columns specific to employment history
+          newRow.append('<td><input type="text" name="r_exp_position[]" placeholder="Position" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="r_exp_institute[]" placeholder="Organization/Institution" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="r_exp_supervisor[]" placeholder="Supervisor" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="r_exp_doj[]" placeholder="DD/MM/YYYY" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="r_exp_dol[]" placeholder="DD/MM/YYYY" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="r_exp_duration[]" placeholder="Duration" class="form-control input-md" required></td>');
+  
+          // Add remove button column
+          newRow.append('<td><button type="button" class="btn btn-danger btn-sm remove-row">Remove</button></td>');
+  
+          // Append the new row to the table body
+          tbody.append(newRow);
+          counter3++;
+  
+          // Initialize datepicker for new rows
+          $('.datepicker').datepicker({
+              format: 'dd/mm/yyyy',
+              autoclose: true
+          });
+      }
+  
+      // Function to add a new row for industrial experience
+      function addIndustrialRow(counter) {
+        let tbody = $('#ind_exp');
+          let newRow = $("<tr>");
+  
+          newRow.append('<td>' + counter4 + '</td>'); // Serial number column
+  
+          // Add other columns specific to employment history
+          newRow.append('<td><input type="text" name="ind_exp_organization[]" placeholder="Organization/Institution" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="ind_exp_workprofile[]" placeholder="Work Profile" class="form-control input-md" required></td>');
+          newRow.append('<td><input type="text" name="ind_exp_doj[]" placeholder="DD/MM/YYYY" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="ind_exp_dol[]" placeholder="DD/MM/YYYY" class="form-control input-md datepicker" required></td>');
+          newRow.append('<td><input type="text" name="ind_exp_duration[]" placeholder="Duration" class="form-control input-md" required></td>');
+  
+          // Add remove button column
+          newRow.append('<td><button type="button" class="btn btn-danger btn-sm remove-row">Remove</button></td>');
+  
+          // Append the new row to the table body
+          tbody.append(newRow);
+          counter4++;
+  
+          // Initialize datepicker for new rows
+          $('.datepicker').datepicker({
+              format: 'dd/mm/yyyy',
+              autoclose: true
+          });
+      }
+  
+      // Function to remove a row
+      $(document).on('click', '.remove-row', function() {
+          $(this).closest('tr').remove();
+      });
+          var counter1 = 1;
+          var counter2 = 1;
+          var counter3 = 1;
+          var counter4 = 1;
+          $("#add_more_exp").click(function() {
+              addEmploymentRow(counter1);
+              counter1++;
+              return false;
+          });
+  
+          $("#add_more_t_exp").click(function() {
+              addTeachingRow(counter2);
+              counter2++;
+              return false;
+          });
+  
+          $("#add_more_r_exp").click(function() {
+              addResearchRow(counter3);
+              counter3++;
+              return false;
+          });
+  
+          $("#add_more_ind_exp").click(function() {
+              addIndustrialRow(counter4);
+              counter4++;
+              return false;
+          });
+  </script>  
+    <div id="footer"></div>
+    </body>

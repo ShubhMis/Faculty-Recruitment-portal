@@ -1,0 +1,64 @@
+import nodemailer from "nodemailer";
+//////////////////////////
+app.get("/reset", (req, res) => {
+  res.render("formpages/reset.ejs");
+});
+app.post("/reset", async(req, res) => {
+  const email = req.body.email;
+  const token =
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15);
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        type: 'login', // specify auth type
+        user: `dkb8923@gmail.com`,
+        pass:'csdn qkeh rabv nyjh' // use 'pass', not 'password'
+      },
+    });
+    
+  const mailOptions = {
+    from: "IIT PATNA<support>.com",
+    to: email,
+    subject: "password-reset-link",
+    text: `Click the following link to reset your password: http://localhost:8000/reset-password/${token}`,
+    html: `<p>Click the following link to reset your password:</p><p><a href="http://localhost:8000/reset-password/${token}">http://localhost:8000/reset-password/${token}</a></p>`
+  };
+  await transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.log(err);
+      
+      res.redirect("/reset");
+    } else {
+      console.log(info);
+      res.redirect("/login");
+   
+    }
+  });
+
+
+
+});
+app.get('/reset-password/:token', (req, res) => {
+  const token = req.params.token;
+ 
+  res.render('formpages/reset-password.ejs', { token });
+});
+
+app.post('/reset-password/:token', (req, res) => {
+  const token = req.params.token;
+  const password = req.body.password;
+  const confirm_password = req.body.confirm_password;
+ 
+  // Check if passwords match
+  if (password !== confirm_password) {
+    res.render('formpages/reset-password.ejs', { token, message: 'Passwords do not match' });
+    return;
+  }
+ console.log('Password reset successful');
+ res.redirect("/login");
+// sres.redirect("/home/logged.ejs");
+});

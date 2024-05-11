@@ -1,0 +1,134 @@
+<% layout("/layout/every.ejs") %>
+<body>
+  
+  <style type="text/css">
+    body{
+      user-select: none;
+    }
+    .form-control {
+      margin-bottom: 10px;
+    }
+
+    .back-imgs {
+      background-size: cover;
+    }
+
+    h3 {
+      font-weight: bold;
+      font-family: "Sintony", sans-serif;
+      text-align: center;
+      color: green;
+    }
+    .iit-logo {
+            max-width: 20vw; /* Adjust as needed */
+            height: auto;
+            padding: auto;
+            margin: 0 auto; /* Center the image */
+            display: block; /* Ensure the image behaves as a block element */
+        }
+        .captcha-container {
+      position: relative;
+      margin-bottom: 10px;
+    }
+        .randomString {
+      font-size: 1.7rem;
+      letter-spacing: 3px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      user-select: none;
+    }
+
+    .captcha-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+
+  <div class="container" style="border-radius: 10px; margin-top: 20px">
+    <div
+      class="row"
+      style="
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 10px;
+        box-shadow: 0px 1px 30px 1px #284d7a;
+        background-color: #e0ea85;
+      "
+    >
+      <div class="col-md-6">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Indian_Institute_of_Technology%2C_Patna.svg/1200px-Indian_Institute_of_Technology%2C_Patna.svg.png" class="iit-logo" />
+      </div>
+
+      <div class="col-md-6">
+        <h3>CREATE YOUR PROFILE</h3>
+        <br />
+        <form action="/signup" method="post" class="form" role="form">
+          <input type="hidden" name="ci_csrf_token" value="" />
+          <div class="row">
+            <div class="col-md-6">
+              <input class="form-control" value="" name="firstname" placeholder="First name" type="text" required="" autofocus />
+            </div>
+            <div class="col-md-6">
+              <input class="form-control" name="lastname" value="" required="" placeholder="Last name" type="text" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <input class="form-control" name="email" placeholder="Your email" value="" required="" type="email" />
+            </div>
+            <div class="col-md-6">
+              <select id="cast" name="category" class="form-control input-md" required="">
+                <option value="">Select Category</option>
+                <option value="GEN">GEN</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="PWD">PWD</option>
+                <option value="EWS">EWS</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <input class="form-control" name="password" placeholder="New Password" required="" type="password" />
+            </div>
+            <div class="col-md-6">
+              <input class="form-control" name="re_password" placeholder="Confirm Password" required="" type="password" />
+            </div>
+          </div>
+          <input type="hidden" name="randomString" value="<%= randomString %>" />
+          <div class="row">
+            <input id="created_at" name="created_at" type="hidden" />
+            <div class="col-md-6 captcha-container">
+              <div class="randomString"><b><%= randomString %></b></div>
+              <img src="assets/captchabg.jpg" class="col-md-6 captcha-image">
+            </div>
+
+            <div class="col-md-6">
+              <input class="form-control" name="captcha" placeholder="Insert image text" required="" type="text" />
+            </div>
+
+            <div class="col-md-12">
+              <h5><strong><font color="red">Note:</font></strong><br/><br/><br/><font color="#124f93">1. Applicant should kindly check their email for activation link to access the portal.<br/>2. Please check SPAM folder also, in case activation link is not received in INBOX.<br/>3. Applicant applying for more than one position/ department should use <strong><font color="red">different email id</font></strong> for each application.</font></h5>
+              <br />
+              <button style="margin-bottom: 10px;" class="btn btn-sm btn-primary" type="submit" name="submit" value="Submit">Register</button>
+              <strong style="margin-bottom: 10px;" class="pull-right" style="color: green; margin-bottom: 30px;">If registered <a href="http://localhost:8000/login" style="margin-bottom: 10px;" class="btn btn-sm btn-success">Login Here</a></strong>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2" style="text-align: center !important; font-weight: bold; color: black !important;"></div>
+  </div>
+
+  <div id="footer"></div>
+</body>
