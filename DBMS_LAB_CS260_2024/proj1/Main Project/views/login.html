@@ -1,0 +1,130 @@
+<html>
+
+<head>
+    <title>Faculty Login</title>
+    <link rel="stylesheet" type="text/css" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.css">
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+
+   
+
+
+
+</head>
+<style type="text/css">
+    body {
+        background-color: rgb(30, 30, 33);
+        color: #ffffff;
+        padding-top: 0px !important;
+    }
+</style>
+
+<body>
+    <div class="container-fluid" style="background-color: rgb(50, 50, 55); margin-bottom: 10px;">
+        <div class="container">
+            <div class="row" style="margin-bottom:10px; ">
+                <div class="col-md-8 col-md-offset-2">
+
+                    <!--  <img src="https://ofa.iiti.ac.in/facrec_che_2023_july_02/images/IITIndorelogo.png" alt="logo1" class="img-responsive" style="padding-top: 5px; height: 120px; float: left;"> -->
+
+                    <h3 style="text-align:center;color:#ffffff!important;font-weight: bold;font-size: 2.3em; margin-top: 3px; font-family: 'Noto Sans', sans-serif;">भारतीय प्रौद्योगिकी संस्थान पटना</h3>
+                    <h3 style="text-align:center;color: #ffffff!important;font-weight: bold;font-family: 'Oswald', sans-serif!important;font-size: 2.2em; margin-top: 0px;">Indian Institute of Technology Patna</h3>
+
+
+                </div>
+
+
+
+            </div>
+            <!-- <h3 style="text-align:center; color: #414002; font-weight: bold;  font-family: 'Fjalla One', sans-serif!important; font-size: 2em;">Application for Academic Appointment</h3> -->
+        </div>
+    </div>
+
+    
+    <h3 style="color: #e10425; margin-bottom: 20px; font-weight: bold; text-align: center;font-family: 'Noto Serif', serif;" class="blink_me">Application for Faculty Position</h3>
+
+    <link rel="stylesheet" type="text/css" href="css/pages.css">
+
+
+
+    <div class="container" style="border-radius:10px; height:300px; margin-top:20px;">
+        <div class="col-md-10 col-md-offset-1">
+
+            <div class="row" style="border-width: 2px; border-style: solid; border-radius: 10px; border-color: rgb(50, 50, 55); box-shadow: 0px 1px 30px 1px rgb(50, 50, 55); background-color:rgb(30, 30, 33);">
+
+
+                <div class="col-md-6" style=" height:403px; border-radius: 10px 0px 0px 10px;"><img src="images/IITP.svg" style="margin-top: 5%; margin-left: 20%; height: 75%">
+
+                    <p style="text-align: center;">
+                    </p>
+                </div>
+
+                <div class="col-md-6" style="border-radius: 0px 10px 10px 0px; height: 403px;">
+                    <br />
+                    <div class="col-md-10 col-md-offset-1">
+                        <h3 style="text-align: center;"><strong><u>LOGIN HERE</u></strong></h3><br />
+
+                        <form action="/loginmethod" role="form" method="post">
+                            <input type="hidden" name="ci_csrf_token" value="" />
+
+                            <div class="inner-addon left-addon">
+                                <i class="glyphicon glyphicon-envelope"></i>
+                                <input type="text" name="email" placeholder="Your email" autofocus="" required/>
+                            </div>
+                            <br />
+
+                            <div class="inner-addon left-addon">
+                                <i class="glyphicon glyphicon-lock"></i>
+                                <input type="password" placeholder="Enter your password" name="password" required>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button type="submit" name="submit" value="Submit">Login</button>
+
+                                </div>
+                                <div class="col-md-9">
+                                    <a href="/forgot_password"><button type="button" class="cancelbtn pull-right">Reset Password</button></a>
+                                </div>
+                            </div>
+
+                        </form>
+                        <br />
+                        <p style="text-align: center; color: green; font-size: 1.3em;"><strong>NOT REGISTERED? </strong> <a href='/signup' class="btn-sm btn-primary"> SIGN UP</a>
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div id="footer"></div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    function blinker() {
+        $('.blink_me').fadeOut(500);
+        $('.blink_me').fadeIn(500);
+    }
+
+    setInterval(blinker, 1000);
+</script>
