@@ -1,1 +1,1 @@
-# 2201AI50_CS260
+IIT Patna Faculty Recruitment Portal.
